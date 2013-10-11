@@ -120,9 +120,10 @@ namespace Kaleidoscope
         private void canvas_Paint(object sender, PaintEventArgs e)
         {
             if (centerVisible) {
+                Color inverse = Color.FromArgb(canvas.BackColor.ToArgb() ^ 0xFFFFFF);
                 Rectangle r = new Rectangle(center, new Size(3, 3));
                 r.Offset(-1, -1);
-                e.Graphics.FillRectangle(new SolidBrush(Color.Red), r);
+                e.Graphics.FillRectangle(new SolidBrush(inverse), r);
             }
         }
 
@@ -153,6 +154,11 @@ namespace Kaleidoscope
             if (newValue > penwidth.Maximum) newValue = penwidth.Maximum;
             if (newValue < reflections.Minimum) newValue = reflections.Minimum;
             penwidth.Value = newValue;
+        }
+
+        private void bgColor_ColorChanged(object sender, EventArgs e)
+        {
+            canvas.BackColor = bgColor.SelectedColor;
         }
     }
 }

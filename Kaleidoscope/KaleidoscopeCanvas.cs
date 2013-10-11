@@ -36,9 +36,9 @@ namespace Kaleidoscope
 
         public Bitmap RenderBitmap()
         {
-            Bitmap b = new Bitmap(redraw.Bitmap.Width, redraw.Bitmap.Height);
+            Bitmap b = new Bitmap(ClientSize.Width, ClientSize.Height);
             Graphics g = Graphics.FromImage(b);
-            g.FillRectangle(new SolidBrush(Color.White), new Rectangle(Point.Empty, redraw.Bitmap.Size));
+            g.FillRectangle(new SolidBrush(BackColor), new Rectangle(Point.Empty, redraw.Bitmap.Size));
             g.DrawImage(redraw.Bitmap, Point.Empty);
             return b;
         }
