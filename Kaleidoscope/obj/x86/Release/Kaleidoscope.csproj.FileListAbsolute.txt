@@ -1,0 +1,11 @@
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\bin\Release\Kaleidoscope.exe
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\bin\Release\Kaleidoscope.pdb
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\ResolveAssemblyReference.cache
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\Kaleidoscope.ColorPalette.resources
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\Kaleidoscope.MainForm.resources
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\Kaleidoscope.KaleidoscopeCanvas.resources
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\Kaleidoscope.Properties.Resources.resources
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\GenerateResource.read.1.tlog
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\GenerateResource.write.1.tlog
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\Kaleidoscope.exe
+c:\src\vs2010\Kaleidoscope\Kaleidoscope\obj\x86\Release\Kaleidoscope.pdb

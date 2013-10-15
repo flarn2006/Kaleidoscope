@@ -47,6 +47,7 @@
             this.loadDefaultColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randomizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settings = new System.Windows.Forms.Panel();
+            this.tip = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.doubled = new System.Windows.Forms.CheckBox();
             this.closeSettings = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.reflections = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.imgSaveDlg = new System.Windows.Forms.SaveFileDialog();
-            this.tip = new System.Windows.Forms.Label();
             this.canvas = new Kaleidoscope.KaleidoscopeCanvas();
             this.bgColor = new Kaleidoscope.ColorButton();
             this.penWidthLabel = new Kaleidoscope.ValueDragLabel();
@@ -243,6 +243,18 @@
             this.settings.Size = new System.Drawing.Size(144, 357);
             this.settings.TabIndex = 3;
             // 
+            // tip
+            // 
+            this.tip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tip.Location = new System.Drawing.Point(7, 277);
+            this.tip.Name = "tip";
+            this.tip.Size = new System.Drawing.Size(123, 69);
+            this.tip.TabIndex = 14;
+            this.tip.Text = "TIP:\r\nDrag left and right on the Reflections and Pen Width labels to quickly chan" +
+                "ge their values.";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -332,18 +344,6 @@
             this.imgSaveDlg.DefaultExt = "png";
             this.imgSaveDlg.Filter = "Portable Network Graphics (*.png)|*.png";
             // 
-            // tip
-            // 
-            this.tip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tip.Location = new System.Drawing.Point(7, 277);
-            this.tip.Name = "tip";
-            this.tip.Size = new System.Drawing.Size(123, 69);
-            this.tip.TabIndex = 14;
-            this.tip.Text = "TIP:\r\nDrag left and right on the Reflections and Pen Width labels to quickly chan" +
-                "ge their values.";
-            // 
             // canvas
             // 
             this.canvas.BackColor = System.Drawing.SystemColors.Window;
@@ -351,9 +351,9 @@
             this.canvas.Cursor = System.Windows.Forms.Cursors.Cross;
             this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.canvas.Kaleidoscope = null;
-            this.canvas.Location = new System.Drawing.Point(40, 24);
+            this.canvas.Location = new System.Drawing.Point(39, 24);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(416, 357);
+            this.canvas.Size = new System.Drawing.Size(417, 357);
             this.canvas.TabIndex = 1;
             this.canvas.TabStop = false;
             this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
@@ -400,7 +400,7 @@
             this.palette.RowCount = 16;
             this.palette.SelectedColor = System.Drawing.Color.Black;
             this.palette.SelectedIndex = 0;
-            this.palette.Size = new System.Drawing.Size(40, 357);
+            this.palette.Size = new System.Drawing.Size(39, 357);
             this.palette.TabIndex = 0;
             this.palette.TabStop = false;
             this.palette.ColorChanged += new System.EventHandler(this.palette_ColorChanged);
