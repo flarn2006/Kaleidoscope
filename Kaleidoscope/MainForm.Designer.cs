@@ -43,19 +43,22 @@
             this.drawingSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.centerPointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadDefaultColorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.randomizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settings = new System.Windows.Forms.Panel();
-            this.bgColor = new Kaleidoscope.ColorButton();
-            this.bgColorNew = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.penWidthLabel = new Kaleidoscope.ValueDragLabel();
-            this.reflectionsLabel = new Kaleidoscope.ValueDragLabel();
             this.doubled = new System.Windows.Forms.CheckBox();
             this.closeSettings = new System.Windows.Forms.Button();
             this.penwidth = new System.Windows.Forms.NumericUpDown();
             this.reflections = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.imgSaveDlg = new System.Windows.Forms.SaveFileDialog();
+            this.tip = new System.Windows.Forms.Label();
             this.canvas = new Kaleidoscope.KaleidoscopeCanvas();
+            this.bgColor = new Kaleidoscope.ColorButton();
+            this.penWidthLabel = new Kaleidoscope.ValueDragLabel();
+            this.reflectionsLabel = new Kaleidoscope.ValueDragLabel();
             this.palette = new Kaleidoscope.ColorPalette();
             this.menuStrip1.SuspendLayout();
             this.settings.SuspendLayout();
@@ -69,7 +72,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.viewToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.colorsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -166,7 +170,7 @@
             this.colorPaletteToolStripMenuItem.CheckOnClick = true;
             this.colorPaletteToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.colorPaletteToolStripMenuItem.Name = "colorPaletteToolStripMenuItem";
-            this.colorPaletteToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.colorPaletteToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.colorPaletteToolStripMenuItem.Text = "Color &Palette";
             this.colorPaletteToolStripMenuItem.Click += new System.EventHandler(this.colorPaletteToolStripMenuItem_Click);
             // 
@@ -176,28 +180,55 @@
             this.drawingSettingsToolStripMenuItem.CheckOnClick = true;
             this.drawingSettingsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.drawingSettingsToolStripMenuItem.Name = "drawingSettingsToolStripMenuItem";
-            this.drawingSettingsToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.drawingSettingsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.drawingSettingsToolStripMenuItem.Text = "Drawing &Settings";
             this.drawingSettingsToolStripMenuItem.Click += new System.EventHandler(this.drawingSettingsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(154, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(194, 6);
             // 
             // centerPointToolStripMenuItem
             // 
             this.centerPointToolStripMenuItem.CheckOnClick = true;
             this.centerPointToolStripMenuItem.Name = "centerPointToolStripMenuItem";
-            this.centerPointToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.centerPointToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+                        | System.Windows.Forms.Keys.C)));
+            this.centerPointToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.centerPointToolStripMenuItem.Text = "&Center Point";
             this.centerPointToolStripMenuItem.Click += new System.EventHandler(this.centerPointToolStripMenuItem_Click);
+            // 
+            // colorsToolStripMenuItem
+            // 
+            this.colorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadDefaultColorsToolStripMenuItem,
+            this.randomizeToolStripMenuItem});
+            this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.colorsToolStripMenuItem.Text = "&Colors";
+            // 
+            // loadDefaultColorsToolStripMenuItem
+            // 
+            this.loadDefaultColorsToolStripMenuItem.Name = "loadDefaultColorsToolStripMenuItem";
+            this.loadDefaultColorsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.loadDefaultColorsToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.loadDefaultColorsToolStripMenuItem.Text = "Load &Default Colors";
+            this.loadDefaultColorsToolStripMenuItem.Click += new System.EventHandler(this.loadDefaultColorsToolStripMenuItem_Click);
+            // 
+            // randomizeToolStripMenuItem
+            // 
+            this.randomizeToolStripMenuItem.Name = "randomizeToolStripMenuItem";
+            this.randomizeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.randomizeToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.randomizeToolStripMenuItem.Text = "&Randomize";
+            this.randomizeToolStripMenuItem.Click += new System.EventHandler(this.randomizeToolStripMenuItem_Click);
             // 
             // settings
             // 
             this.settings.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.settings.Controls.Add(this.tip);
             this.settings.Controls.Add(this.bgColor);
-            this.settings.Controls.Add(this.bgColorNew);
             this.settings.Controls.Add(this.label2);
             this.settings.Controls.Add(this.penWidthLabel);
             this.settings.Controls.Add(this.reflectionsLabel);
@@ -212,27 +243,6 @@
             this.settings.Size = new System.Drawing.Size(144, 357);
             this.settings.TabIndex = 3;
             // 
-            // bgColor
-            // 
-            this.bgColor.Location = new System.Drawing.Point(104, 125);
-            this.bgColor.Name = "bgColor";
-            this.bgColor.Size = new System.Drawing.Size(33, 23);
-            this.bgColor.TabIndex = 13;
-            this.bgColor.UseVisualStyleBackColor = true;
-            this.bgColor.ColorChanged += new System.EventHandler(this.bgColor_ColorChanged);
-            // 
-            // bgColorNew
-            // 
-            this.bgColorNew.AutoSize = true;
-            this.bgColorNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bgColorNew.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.bgColorNew.Location = new System.Drawing.Point(3, 138);
-            this.bgColorNew.Name = "bgColorNew";
-            this.bgColorNew.Size = new System.Drawing.Size(95, 13);
-            this.bgColorNew.TabIndex = 12;
-            this.bgColorNew.Text = "(File->New, Ctrl+N)";
-            this.bgColorNew.Visible = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -241,28 +251,6 @@
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Background Color:";
-            // 
-            // penWidthLabel
-            // 
-            this.penWidthLabel.AutoSize = true;
-            this.penWidthLabel.Cursor = System.Windows.Forms.Cursors.SizeWE;
-            this.penWidthLabel.Location = new System.Drawing.Point(4, 91);
-            this.penWidthLabel.Name = "penWidthLabel";
-            this.penWidthLabel.Size = new System.Drawing.Size(60, 13);
-            this.penWidthLabel.TabIndex = 9;
-            this.penWidthLabel.Text = "Pen Width:";
-            this.penWidthLabel.ValueDrag += new System.EventHandler<Kaleidoscope.ValueDragLabel.ValueDragEventArgs>(this.penWidthLabel_ValueDrag);
-            // 
-            // reflectionsLabel
-            // 
-            this.reflectionsLabel.AutoSize = true;
-            this.reflectionsLabel.Cursor = System.Windows.Forms.Cursors.SizeWE;
-            this.reflectionsLabel.Location = new System.Drawing.Point(3, 34);
-            this.reflectionsLabel.Name = "reflectionsLabel";
-            this.reflectionsLabel.Size = new System.Drawing.Size(63, 13);
-            this.reflectionsLabel.TabIndex = 8;
-            this.reflectionsLabel.Text = "Reflections:";
-            this.reflectionsLabel.ValueDrag += new System.EventHandler<Kaleidoscope.ValueDragLabel.ValueDragEventArgs>(this.reflectionsLabel_ValueDrag);
             // 
             // doubled
             // 
@@ -344,6 +332,18 @@
             this.imgSaveDlg.DefaultExt = "png";
             this.imgSaveDlg.Filter = "Portable Network Graphics (*.png)|*.png";
             // 
+            // tip
+            // 
+            this.tip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tip.Location = new System.Drawing.Point(7, 277);
+            this.tip.Name = "tip";
+            this.tip.Size = new System.Drawing.Size(123, 69);
+            this.tip.TabIndex = 14;
+            this.tip.Text = "TIP:\r\nDrag left and right on the Reflections and Pen Width labels to quickly chan" +
+                "ge their values.";
+            // 
             // canvas
             // 
             this.canvas.BackColor = System.Drawing.SystemColors.Window;
@@ -351,13 +351,44 @@
             this.canvas.Cursor = System.Windows.Forms.Cursors.Cross;
             this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.canvas.Kaleidoscope = null;
-            this.canvas.Location = new System.Drawing.Point(34, 24);
+            this.canvas.Location = new System.Drawing.Point(40, 24);
             this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(422, 357);
+            this.canvas.Size = new System.Drawing.Size(416, 357);
             this.canvas.TabIndex = 1;
             this.canvas.TabStop = false;
             this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
             this.canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseDown);
+            // 
+            // bgColor
+            // 
+            this.bgColor.Location = new System.Drawing.Point(104, 125);
+            this.bgColor.Name = "bgColor";
+            this.bgColor.Size = new System.Drawing.Size(33, 23);
+            this.bgColor.TabIndex = 13;
+            this.bgColor.UseVisualStyleBackColor = true;
+            this.bgColor.ColorChanged += new System.EventHandler(this.bgColor_ColorChanged);
+            // 
+            // penWidthLabel
+            // 
+            this.penWidthLabel.AutoSize = true;
+            this.penWidthLabel.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.penWidthLabel.Location = new System.Drawing.Point(4, 91);
+            this.penWidthLabel.Name = "penWidthLabel";
+            this.penWidthLabel.Size = new System.Drawing.Size(60, 13);
+            this.penWidthLabel.TabIndex = 9;
+            this.penWidthLabel.Text = "Pen Width:";
+            this.penWidthLabel.ValueDrag += new System.EventHandler<Kaleidoscope.ValueDragLabel.ValueDragEventArgs>(this.penWidthLabel_ValueDrag);
+            // 
+            // reflectionsLabel
+            // 
+            this.reflectionsLabel.AutoSize = true;
+            this.reflectionsLabel.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.reflectionsLabel.Location = new System.Drawing.Point(3, 34);
+            this.reflectionsLabel.Name = "reflectionsLabel";
+            this.reflectionsLabel.Size = new System.Drawing.Size(63, 13);
+            this.reflectionsLabel.TabIndex = 8;
+            this.reflectionsLabel.Text = "Reflections:";
+            this.reflectionsLabel.ValueDrag += new System.EventHandler<Kaleidoscope.ValueDragLabel.ValueDragEventArgs>(this.reflectionsLabel_ValueDrag);
             // 
             // palette
             // 
@@ -369,7 +400,7 @@
             this.palette.RowCount = 16;
             this.palette.SelectedColor = System.Drawing.Color.Black;
             this.palette.SelectedIndex = 0;
-            this.palette.Size = new System.Drawing.Size(34, 357);
+            this.palette.Size = new System.Drawing.Size(40, 357);
             this.palette.TabIndex = 0;
             this.palette.TabStop = false;
             this.palette.ColorChanged += new System.EventHandler(this.palette_ColorChanged);
@@ -391,6 +422,7 @@
             this.Name = "MainForm";
             this.Text = "Kaleidoscope";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.settings.ResumeLayout(false);
@@ -430,9 +462,12 @@
         private System.Windows.Forms.SaveFileDialog imgSaveDlg;
         private ValueDragLabel reflectionsLabel;
         private ValueDragLabel penWidthLabel;
-        private System.Windows.Forms.Label bgColorNew;
         private System.Windows.Forms.Label label2;
         private ColorButton bgColor;
+        private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadDefaultColorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem randomizeToolStripMenuItem;
+        private System.Windows.Forms.Label tip;
 
     }
 }

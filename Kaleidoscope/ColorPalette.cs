@@ -37,6 +37,7 @@ namespace Kaleidoscope
                     palette[r, c] = Color.FromArgb(rand.Next(255), rand.Next(255), rand.Next(255));
                 }
             }
+            Invalidate();
         }
 
         private void InitializeArray()
@@ -229,6 +230,26 @@ namespace Kaleidoscope
         private void ColorPalette_MouseLeave(object sender, EventArgs e)
         {
             HighlightIndex(CustomColorIndex - 1);
+        }
+
+        public void LoadColors(Color[] colors, Color extras)
+        {
+            int count = rows * cols;
+            for (int i = 0; i < count; i++) {
+                Color c;
+                if (i < colors.Length) {
+                    c = colors[i];
+                } else {
+                    c = extras;
+                }
+                SetColor(i / cols, i % cols, c);
+            }
+            Invalidate();
+        }
+
+        public void LoadColors(Color[] colors)
+        {
+            LoadColors(colors, Color.White);
         }
     }
 }

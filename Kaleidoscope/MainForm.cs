@@ -80,6 +80,7 @@ namespace Kaleidoscope
         {
             center = new Point(canvas.ClientSize.Width / 2, canvas.ClientSize.Height / 2);
             UpdateKaleidoscope();
+            palette.LoadColors(DefaultPalette.Palette);
         }
 
         private void UpdateKaleidoscope(object sender, EventArgs e)
@@ -159,6 +160,25 @@ namespace Kaleidoscope
         private void bgColor_ColorChanged(object sender, EventArgs e)
         {
             canvas.BackColor = bgColor.SelectedColor;
+        }
+
+        private void loadDefaultColorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            palette.LoadColors(DefaultPalette.Palette);
+        }
+
+        private void randomizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            palette.RandomizeColors();
+            palette.SetColor(0, 0, Color.Black);
+            palette.SetColor(0, 1, Color.White);
+            palette.Invalidate();
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            palette.Width = palette.Height / 9;
+            tip.Visible = (Height > 284);
         }
     }
 }

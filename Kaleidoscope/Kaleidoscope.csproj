@@ -64,6 +64,7 @@
     <Compile Include="ColorPalette.Designer.cs">
       <DependentUpon>ColorPalette.cs</DependentUpon>
     </Compile>
+    <Compile Include="DefaultPalette.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
