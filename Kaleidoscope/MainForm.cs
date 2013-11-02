@@ -12,7 +12,7 @@ namespace Kaleidoscope
 {
     public partial class MainForm : Form
     {
-        IStack<Image> undo;
+        IStack<Image> undo, redo;
         Point center;
         bool centerVisible = false;
 
@@ -20,6 +20,7 @@ namespace Kaleidoscope
         {
             InitializeComponent();
             undo = CreateUndoBuffer();
+            redo = CreateUndoBuffer();
             bgColor.SelectedColor = canvas.BackColor = Properties.Settings.Default.DefaultBackColor;
         }
 
@@ -106,8 +107,10 @@ namespace Kaleidoscope
         private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
+                redo.Clear();
                 undo.Push(canvas.GetBitmap().Clone() as Image);
                 undoToolStripMenuItem.Enabled = true;
+                redoToolStripMenuItem.Enabled = false;
             } else if (e.Button == MouseButtons.Right) {
                 center = e.Location;
                 canvas.Invalidate();
@@ -119,6 +122,8 @@ namespace Kaleidoscope
         {
             if (undo.Count > 0) {
                 Image img = undo.Pop();
+                redo.Push(canvas.GetBitmap().Clone() as Image);
+                redoToolStripMenuItem.Enabled = true;
                 canvas.Clear();
                 Graphics.FromImage(canvas.GetBitmap()).DrawImage(img, Point.Empty);
                 canvas.Invalidate();
@@ -194,6 +199,21 @@ namespace Kaleidoscope
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new PreferencesForm().ShowDialog();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (redo.Count > 0) {
+                Image img = redo.Pop();
+                undo.Push(canvas.GetBitmap().Clone() as Image);
+                undoToolStripMenuItem.Enabled = true;
+                canvas.Clear();
+                Graphics.FromImage(canvas.GetBitmap()).DrawImage(img, Point.Empty);
+                canvas.Invalidate();
+                if (redo.Count == 0) {
+                    redoToolStripMenuItem.Enabled = false;
+                }
+            }
         }
     }
 }

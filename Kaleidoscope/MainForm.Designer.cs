@@ -62,6 +62,7 @@
             this.imgSaveDlg = new System.Windows.Forms.SaveFileDialog();
             this.canvas = new Kaleidoscope.KaleidoscopeCanvas();
             this.palette = new Kaleidoscope.ColorPalette();
+            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.penwidth)).BeginInit();
@@ -127,6 +128,7 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
+            this.redoToolStripMenuItem,
             this.toolStripSeparator1,
             this.copyToolStripMenuItem,
             this.toolStripMenuItem3,
@@ -422,6 +424,15 @@
             this.palette.ColorChanged += new System.EventHandler(this.palette_ColorChanged);
             this.palette.Load += new System.EventHandler(this.palette_Load);
             // 
+            // redoToolStripMenuItem
+            // 
+            this.redoToolStripMenuItem.Enabled = false;
+            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
+            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.redoToolStripMenuItem.Text = "&Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +497,7 @@
         private System.Windows.Forms.Label tip;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
 
     }
 }
