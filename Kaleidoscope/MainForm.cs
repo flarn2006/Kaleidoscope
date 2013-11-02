@@ -12,14 +12,24 @@ namespace Kaleidoscope
 {
     public partial class MainForm : Form
     {
-        Stack<Image> undo;
+        IStack<Image> undo;
         Point center;
         bool centerVisible = false;
 
         public MainForm()
         {
             InitializeComponent();
-            undo = new Stack<Image>();
+            undo = CreateUndoBuffer();
+            bgColor.SelectedColor = canvas.BackColor = Properties.Settings.Default.DefaultBackColor;
+        }
+
+        private IStack<Image> CreateUndoBuffer()
+        {
+            if (Properties.Settings.Default.LimitedUndo) {
+                return new MostRecentStack<Image>(Properties.Settings.Default.UndoBufferSize);
+            } else {
+                return new Stack<Image>();
+            }
         }
 
         private void palette_ColorChanged(object sender, EventArgs e)
@@ -179,6 +189,11 @@ namespace Kaleidoscope
         {
             palette.Width = palette.Height / 9;
             tip.Visible = (Height > 284);
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new PreferencesForm().ShowDialog();
         }
     }
 }

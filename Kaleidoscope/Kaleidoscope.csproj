@@ -65,6 +65,7 @@
       <DependentUpon>ColorPalette.cs</DependentUpon>
     </Compile>
     <Compile Include="DefaultPalette.cs" />
+    <Compile Include="IStack.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +78,13 @@
     </Compile>
     <Compile Include="KaleidoscopeCanvas.Designer.cs">
       <DependentUpon>KaleidoscopeCanvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MostRecentStack.cs" />
+    <Compile Include="PreferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreferencesForm.Designer.cs">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +101,9 @@
     <EmbeddedResource Include="KaleidoscopeCanvas.resx">
       <DependentUpon>KaleidoscopeCanvas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PreferencesForm.resx">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,6 +113,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
