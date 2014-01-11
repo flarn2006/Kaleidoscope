@@ -5,7 +5,7 @@ This program was inspired by an Android app called "Magic Kaleido" by the oddly-
 
 ## How to Use
 
-This program is mostly pretty self-explanatory, but there's a few things that need explanation. First of all, if you're wondering why the color palette is so weird, it's because it's randomly generated each time you run the application. Two colors that are guaranteed to appear, however, are black and white. Some time soon I'll probably add some more preset colors. (And not just so I won't be accused of [hypocrisy](http://flarn2006.blogspot.com/2012/07/fixing-color-palette-in-windows-7s.html).
+This program is mostly pretty self-explanatory, but there's a few things that need explanation. First of all, if you're wondering why the color palette is so weird, it's because it's randomly generated each time you run the application. Two colors that are guaranteed to appear, however, are black and white. Some time soon I'll probably add some more preset colors. (And not just so I won't be accused of [hypocrisy](http://flarn2006.blogspot.com/2012/07/fixing-color-palette-in-windows-7s.html)).
 
 As you probably already figured out (unless you're reading this before you try the program) you can draw by dragging in the white area in the center of the window. It will automatically draw more lines in a symmetrical manner, and you can make some neat designs with this. On the right, you can control the number of "reflections" it makes, as well as the pen width. If you uncheck "doubled", you can draw lines going purely clockwise or purely counterclockwise, without another line appearing going the opposite direction.
 
